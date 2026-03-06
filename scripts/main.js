@@ -1,4 +1,4 @@
-//
+// initial empty aarray
 const savedWords = [];
 
 // show saved word in ui
@@ -21,12 +21,63 @@ const displaySavedWords = () => {
         wordDiv.classList = 'rounded-2xl bg-white p-14';
 
         wordDiv.innerHTML = `
-            <h3 class="text-lg font-bold">${word.word}</h3>
-            <p>${word.meaning || "No meaning found"}</p>
+            <div class="level-card rounded-2xl bg-white p-14">
+                <h3 class="font-bold text-3xl">${word.word || "শব্দ পাওয়া যায়নি"}</h3>
+
+                <p class="text-sm py-6">Meaning / Pronunciation</p>
+
+                <p class="font-bangla text-[#464649] font-semibold text-2xl">
+                    ${word.meaning || "অর্থ পাওয়া যায়নি"} 
+                    /
+                    ${word.pronunciation || "Pronounciation পাওয়া  যায়নি"}
+                </p>
+
+                <div class="card-icon mt-14 flex justify-between gap-4 text-xl text-[#374957]">
+                    <button data-id="${word.id}" class="word-details btn bg-[#edf7ff] p-3 rounded-lg"><i class="fa-solid fa-circle-info"></i></button>
+
+                    <button data-id="${word.id}" class="save-word btn bg-[#EDF7FF] p-3 rounded-lg"><i class="fa-solid fa-heart text-gray"></i></button>
+
+                    <button data-id="${word.word}" class="word-sound btn bg-[#EDF7FF] p-3 rounded-lg"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+            </div>
         `;
 
         wordsContainer.appendChild(wordDiv);
     });
+
+    // load the word details wordDetails()
+    const saveWordDetails = document.querySelectorAll('.word-details');
+    saveWordDetails.forEach((saveDetailsBtn) => {
+        saveDetailsBtn.addEventListener('click', (event) => {
+            const wordId = event.currentTarget.dataset.id;
+            // console.log(wordId);
+
+            loadWordDetail(wordId);
+        });
+    });
+
+    const saveWordSaveBtns = document.querySelectorAll('.save-word');
+    saveWordSaveBtns.forEach(saveBtn => {
+        saveBtn.addEventListener('click', () => {            
+            const selectedWord = words.find(word => word.word);
+
+            alert(`${selectedWord} already saved!`);
+
+            return;
+        });
+    });
+
+    const saveWordSound = document.querySelectorAll('.word-sound');
+    saveWordSound.forEach((saveSound) => {
+        saveSound.addEventListener('click', (event) => {
+            const word = event.currentTarget.dataset.id;
+            // console.log(word);
+
+            pronounceWord(word);
+        });
+    });
+
+    manageSpinner(false);
 };
 
 // save the word
@@ -37,6 +88,8 @@ const savedWord = (word) => {
         alert('Word already saved!');
         return;
     }
+
+    // console.log(word);
 
     savedWords.push(word);
 
