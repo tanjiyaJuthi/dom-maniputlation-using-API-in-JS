@@ -1,79 +1,35 @@
-## Fetch data from API and show in DOM using JS
+### Fetch data from API and show in DOM using JS
 
 The resource I used from Programming Hero. You can checkout: [English Janala API](https://github.com/ProgrammingHero1/english-janala-resources?tab=readme-ov-file)
 
-⚡ API Endpoints
-Get ⚡ All Levels
-https://openapi.programming-hero.com/api/levels/all
+##⚡ API Endpoints:
 
-Get ⚡ Words by Levels
-https:// openapi.programming-hero.com/api/level/{id}
-https://openapi.programming-hero.com/api/level/5
+1. Get All Levels
+   https://openapi.programming-hero.com/api/levels/all
+   <br><br>
+2. Get Words by Levels
+   https:// openapi.programming-hero.com/api/level/{id}
+   <br>
+   https://openapi.programming-hero.com/api/level/5
+   <br><br>
+3. Get Words Detail
+   https:// openapi.programming-hero.com/api/word/{id} <br>
+   https://openapi.programming-hero.com/api/word/5
+   <br><br>
+4. Get All Words
+   https://openapi.programming-hero.com/api/words/all
+   <br><br>
 
-Get ⚡ Words Detail
-https:// openapi.programming-hero.com/api/word/{id}
-https://openapi.programming-hero.com/api/word/5
+What you will see:
 
-Get ⚡ All Words
-https://openapi.programming-hero.com/api/words/all
-
-
-Work To do
-1. Show Levels on The UI
- Show a center-aligned heading as Figma
- Create dynamically generated buttons from API-01 for each lesson
- Lesson Buttons will be displayed on page load
-
-2. Show Word Cards Based on Level
- Show a default text that will be displayed in the Vocabulary section initially
-
- on Clicking a Specific Lesson Button Load All the words from API-02
-
- Display all words for a selected lesson in a card format, showing:
-
- Word
- Word meaning & pronunciation
- Two buttons with relevant icons as per Figma
- Show *No Word Found message if no words exist for a lesson
-
- Create functionality to highlight the active lesson button
-
-3. Use Different Color on The Active Level Button
- After Successfully Loading words of a level , diffirentiate the button so user can understand which button is active
-
-4. Vocabulary Details
- Create functionality to open a modal when clicking the details icon
- Data will be load from API-03
- modal will displays:
- Word with pronunciation
- Example sentence
- Synonyms
- A "Complete Learning" button to close the modal
-
-5. Handling Invalid Data
- avoid displaying falsy values like undefined or null
- display relevant words if no data is found
-
-6. Loading Spinner
- Create a loading spinner that will be display when vocabulary is loading from API
-
-7. Implement Search Functionality
- Take a input Box.
- on Changing value It will Search word and show in the UI.
- If anyone Do search reset active button
-
-8. Save Word Feature
- in the UI of Card add a button Heart icon
- on Clicking it. Store the Word in the Saved Box
- Show Saved words in a Different Section.
- 
-9. Speak  Vocabularies
- Create functionality for voice pronunciation of vocabulary words
-
- Use below function and implement on clicking sound icon
-
-function pronounceWord(word) {
-    const utterance = new SpeechSynthesisUtterance(word);
-    utterance.lang = "en-EN"; // English
-    window.speechSynthesis.speak(utterance);
-}
+<ol>
+    <li>Show Levels on The UI</li>
+    <li>Show Word Cards Based on Level</li>
+    <li>Highlight the active lesson button</li>
+    <li>Vocabulary Details</li>
+    <li>Handling Invalid Data</li>
+    <li>Loading Spinner</li>
+    <li>Implement Search Functionality</li>
+    <li>Save Word Feature</li>
+    <li>Speak Vocabularies</li>
+</ol>
